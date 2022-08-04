@@ -15,7 +15,97 @@ class Productos {
             )
         );
     }
+    nuevoFunko(){
+        let bandera = true
+        while(bandera) {
+            let nombreFunko = prompt(
+                `Ingrese el nombre.`
+            );
+            let versionFunko =prompt(
+                "¿Qué versión es?"
+            );
+            let categoriaFunko = prompt(
+                "Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.)."
+            );
+            let subcategoriaFunko = prompt(
+                "Ingrese la subcategoría (nombre del programa, película, equipo o banda)."
+            );
+            let tamañoFunko = prompt(
+                "Ingrese el tamaño del funko (grande, chico, mediano)."
+            );
+            let precioFunko = parseInt(prompt(
+                "Ingrese el precio del funko."
+            ));
+            let funkoIngresado = new Funko (
+                nombreFunko, 
+                versionFunko, 
+                categoriaFunko, 
+                subcategoriaFunko, 
+                tamañoFunko, 
+                precioFunko, 
+                listaProductos.funkos.length+1
+            );
+            console.log(funkoIngresado)
+            listaProductos.añadirFunko(funkoIngresado)    
+            let respuesta = prompt(
+                `Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`
+            );
+            if(respuesta =="no"){
+                bandera = false
+            }
+        }
+    }
+
+    busquedaNombre(){
+        let nombre = prompt(
+            "Decinos el nombre del funko que estás buscando"
+        );
+        const busqueda1 = listaProductos.funkos.filter((funk)=>
+            funk.nombre.toLowerCase() == nombre
+        );
+        return busqueda1
+    }
+    getBusquedaNombre(){
+        this.busquedaNombre().forEach((el)=>
+            console.log(
+                `Tenemos el funko ${el.tamaño} de ${el.nombre} ${el.version} a $${el.precio} (Código ${el.codigo})`
+            )
+        );
+    }
+    busquedaCategoria(){
+        let categoria = prompt(
+            "Decinos la categoría del funko que buscás (peliculas|series|deportes|música)."
+        );
+        const busqueda2 = listaProductos.funkos.filter((funk)=>
+            funk.categoria.toLowerCase() == categoria
+        );
+        return busqueda2
+    }
+    getBusquedaCategoria(){
+        this.busquedaCategoria().forEach((el)=>
+            console.log(
+                `En esta categoría tenemos el funko ${el.tamaño} de ${el.nombre} ${el.version} a $${el.precio} (Código ${el.codigo})`
+            )
+        );
+    }
+    busquedaSubcategoria(){
+        let subcategoria = prompt(
+            "Decinos el nombre de la pelicula/serie/equipo/banda."
+        );
+        const busqueda3 = listaProductos.funkos.filter((funk)=>
+            funk.subcategoria.toLowerCase() == subcategoria
+        );
+        return busqueda3
+    }
+    getBusquedaSubcategoria(){
+        this.busquedaSubcategoria().forEach((el)=>
+            console.log(
+                `De ${el.subcategoria} tenemos el funko ${el.tamaño} de ${el.nombre} ${el.version} a $${el.precio} (Código ${el.codigo})`
+            )
+        );
+    }
 }
+
 
 class Funko{
     constructor(nombre, version, categoria, subcategoria, tamaño, precio, codigo) {
@@ -45,60 +135,26 @@ class Carritos{
             console.log(`Seleccionaste el funko de ${funk.nombre}. Cuesta $ ${funk.precio}`)
         );
     }
-}
-
-
-function nuevoFunko(){
-    let bandera = true
-    while(bandera) {
-        let nombreFunko = prompt(
-            "Ingrese el nombre."
-        );
-        let versionFunko =prompt(
-            "¿Qué versión es?"
-        );
-        let categoriaFunko = prompt(
-            "Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.)."
-        );
-        let subcategoriaFunko = prompt(
-            "Ingrese la subcategoría (nombre del programa, película, equipo o banda)."
-        );
-        let tamañoFunko = prompt(
-            "Ingrese el tamaño del funko (grande, chico, mediano)."
-        );
-        let precioFunko = prompt(
-            "Ingrese el precio del funko."
-        );
-        let funkoIngresado = new Funko (
-            nombreFunko, 
-            versionFunko, 
-            categoriaFunko, 
-            subcategoriaFunko, 
-            tamañoFunko, 
-            precioFunko, 
-            listaProductos.funkos.length+1
-        );
-        console.log(funkoIngresado)
-        listaProductos.añadirFunko(funkoIngresado)    
-        let respuesta = prompt(
-            `Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`
-        );
-        if(respuesta =="no"){
-            bandera = false
-        }
+    totalCompra(){
+       let sumaTotal =  this.funkosSeleccionados.reduce((acum, elemento) => acum + elemento.precio, 0);
+       console.log(`El total de tu compra es $${sumaTotal}`) 
     }
 }
+
+
+
 
 function eleccionFunko(){
     let bandera2 = true
     while(bandera2){
-    let codigoCompra= prompt("Ingrese el codigo que quiera comprar")
-    carrito.push(listaProductos.funkos[codigoCompra-1])
-    console.log(carrito)
-    let otraEleccion = prompt("Querés sumar otro funko?")
-    if(otraEleccion=="no"){
-    bandera2=false
-    }
+        let codigoCompra= prompt(`Ingrese el codigo que quiera comprar`)
+        carrito.seleccionarFunko(listaProductos.funkos[codigoCompra-1])
+        console.log(carrito)
+        console.log(carrito.funkosSeleccionados)
+        let otraEleccion = prompt("Querés sumar otro funko?")
+        if(otraEleccion=="no"){
+            bandera2=false
+        }
     }
 }
 
@@ -108,33 +164,67 @@ function preguntarOpcion(){
                         1 - Ver listado de funkos
                         2 - Comprar Funko
                         3 - Cargar un funko nuevo
-                        4 - Salir
+                        4 - Buscador de funkos
+                        5 - Salir
     `))
     menu(opcion)
 }
 
 function menu(opcionSeleccionada){
     switch(opcionSeleccionada){
-        case 4:
-            salir = true
+        case 5:
+            salir = false
             alert(`Gracias por visitarnos`)
             break;
         case 1:
             listaProductos.mostrarFunkos()
-            preguntarOpcion()
             break;
         case 2:
             eleccionFunko()
+            carrito.mostrarSeleccion()
+            carrito.totalCompra()
             break;
         case 3:
-            nuevoFunko()
-            preguntarOpcion()
+            listaProductos.nuevoFunko()
+            break;
+        case 4:
+            let preguntaBusqueda = parseInt(prompt(`
+                ¿Cómo querés buscarlo?
+                1 - Por nombre
+                2 - Por categoría
+                3 - Por precio 
+                0 - Volver
+            `))
+            buscarFunko(preguntaBusqueda)
             break;
         default:
             alert(`Por favor ingrese una opción valida`)
     }
 }
 
+
+
+function buscarFunko(opcionBusqueda){
+    switch(opcionBusqueda){
+        case 1:
+            listaProductos.getBusquedaNombre()
+            break;
+        case 2:
+            listaProductos.getBusquedaCategoria()
+            let refinarBusqueda = prompt(`Querés refinar la busqueda? (si|no)`)
+            if (refinarBusqueda.toLowerCase()=="si"){
+                listaProductos.getBusquedaSubcategoria()
+            }
+            break;
+        case 3:
+        
+        break;
+        case 0:
+            preguntarOpcion()
+            break;
+
+    }
+}
 
 
 
@@ -165,14 +255,14 @@ listaProductos.añadirFunko(funko9)
 listaProductos.añadirFunko(funko10)
 listaProductos.añadirFunko(funko11)
 listaProductos.añadirFunko(funko12)
+const carrito = new Carritos()
 
 
 
-const carrito = []
 
+let salir = true
+while(salir){
 preguntarOpcion()
+}
 
-carrito.forEach((elem) => console.log(`Seleccionaste el funko de ${elem.nombre} y cuesta $${elem.precio}`))
-let totalCompra = carrito.reduce((acum, elemento) => acum + elemento.precio, 0) 
-console.log(`El total de tu compra es $${totalCompra}`)
 
