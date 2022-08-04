@@ -2,6 +2,27 @@
 
 
 
+
+
+
+
+    const funkoElegido = {
+        nombre: busqueda1.nombre,
+        version: busqueda1.version,
+        categoria: busqueda1.categoria,
+        subcategoria: busqueda1.subcategoria,
+        tamaño: busqueda1.tamaño,
+        precio: busqueda1.precio,
+        codigo:  listaProductos.funkos.length+1,
+    }
+
+
+
+
+
+
+
+
 class Productos {
     constructor(){
         this.funkos=[]

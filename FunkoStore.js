@@ -9,7 +9,11 @@ class Productos {
         return this.funkos
     }
     mostrarFunkos(){
-        this.funkos.forEach((funko) => console.log(`El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`))
+        this.funkos.forEach((funko) => 
+            console.log(
+                `El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
+            )
+        );
     }
 }
 
@@ -37,7 +41,9 @@ class Carritos{
         return this.funkosSeleccionados
     }
     mostrarSeleccion(){
-        this.funkosSeleccionados.forEach((funk) => console.log(`Seleccionaste el funko de ${funk.nombre}. Cuesta $ ${funk.precio}`))
+        this.funkosSeleccionados.forEach((funk) => 
+            console.log(`Seleccionaste el funko de ${funk.nombre}. Cuesta $ ${funk.precio}`)
+        );
     }
 }
 
@@ -45,37 +51,93 @@ class Carritos{
 function nuevoFunko(){
     let bandera = true
     while(bandera) {
-    let nombreFunko = prompt("Ingrese el nombre.")
-    let versionFunko =prompt("¿Qué versión es?")
-    let categoriaFunko = prompt("Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.).")
-    let subcategoriaFunko = prompt("Ingrese la subcategoría (nombre del programa, película, equipo o banda).")
-    let tamañoFunko = prompt("Ingrese el tamaño del funko (grande, chico, mediano).")
-    let precioFunko = prompt("Ingrese el precio del funko.")
-    let funkoIngresado = new Funko (nombreFunko, versionFunko, categoriaFunko, subcategoriaFunko, tamañoFunko, precioFunko, listaProductos.funkos.length+1)
-    console.log(funkoIngresado)
-    listaProductos.añadirFunko(funkoIngresado)    
-    let respuesta = prompt(`Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`)
-    if(respuesta =="no"){
-        bandera = false
+        let nombreFunko = prompt(
+            "Ingrese el nombre."
+        );
+        let versionFunko =prompt(
+            "¿Qué versión es?"
+        );
+        let categoriaFunko = prompt(
+            "Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.)."
+        );
+        let subcategoriaFunko = prompt(
+            "Ingrese la subcategoría (nombre del programa, película, equipo o banda)."
+        );
+        let tamañoFunko = prompt(
+            "Ingrese el tamaño del funko (grande, chico, mediano)."
+        );
+        let precioFunko = prompt(
+            "Ingrese el precio del funko."
+        );
+        let funkoIngresado = new Funko (
+            nombreFunko, 
+            versionFunko, 
+            categoriaFunko, 
+            subcategoriaFunko, 
+            tamañoFunko, 
+            precioFunko, 
+            listaProductos.funkos.length+1
+        );
+        console.log(funkoIngresado)
+        listaProductos.añadirFunko(funkoIngresado)    
+        let respuesta = prompt(
+            `Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`
+        );
+        if(respuesta =="no"){
+            bandera = false
+        }
     }
-}
 }
 
 function eleccionFunko(){
     let bandera2 = true
     while(bandera2){
     let codigoCompra= prompt("Ingrese el codigo que quiera comprar")
-    const busqueda1 = listaProductos.funkos.filter((elem) =>elem.codigo == codigoCompra)
-    console.log(busqueda1)
-    carrito.seleccionarFunko(busqueda1)
+    carrito.push(listaProductos.funkos[codigoCompra-1])
     console.log(carrito)
-    console.log(carrito.funkosSeleccionados)
     let otraEleccion = prompt("Querés sumar otro funko?")
     if(otraEleccion=="no"){
     bandera2=false
     }
     }
 }
+
+
+function preguntarOpcion(){
+    let opcion = parseInt(prompt(`Ingrese la opción deseada:
+                        1 - Ver listado de funkos
+                        2 - Comprar Funko
+                        3 - Cargar un funko nuevo
+                        4 - Salir
+    `))
+    menu(opcion)
+}
+
+function menu(opcionSeleccionada){
+    switch(opcionSeleccionada){
+        case 4:
+            salir = true
+            alert(`Gracias por visitarnos`)
+            break;
+        case 1:
+            listaProductos.mostrarFunkos()
+            preguntarOpcion()
+            break;
+        case 2:
+            eleccionFunko()
+            break;
+        case 3:
+            nuevoFunko()
+            preguntarOpcion()
+            break;
+        default:
+            alert(`Por favor ingrese una opción valida`)
+    }
+}
+
+
+
+
 
 
 const funko1 = new Funko ("Jon Snow", "versión Lord Comander", "Series", "Game of Thrones", "mediano", 2500, 1)
@@ -105,26 +167,12 @@ listaProductos.añadirFunko(funko11)
 listaProductos.añadirFunko(funko12)
 
 
-// console.log(listaProductos)
-// listaProductos.funkos.forEach((funko) => console.log(`Tenemos el funko ${funko.tamaño} de ${funko.nombre} ${funko.version} a ${funko.precio}. (Código ${funko.codigo}) `))
 
+const carrito = []
 
+preguntarOpcion()
 
-// console.log(listaProductos)
-// listaProductos.funkos.forEach((funko) => console.log(`Tenemos el funko ${funko.tamaño} de ${funko.nombre} ${funko.version} a ${funko.precio}. (Código ${funko.codigo}) `))
-
-
-
-const carrito = new Carritos ()
-
-listaProductos.mostrarFunkos()
-
-// nuevoFunko()
-
-eleccionFunko()
-
-carrito.mostrarSeleccion()
-
-carrito.funkosSeleccionados.forEach((elem) => console.log(`Seleccionaste el funko de ${elem.nombre} y cuesta $${elem.nombre}`))
-console.log(carrito.funkosSeleccionados.reduce((acum, elemento) => acum + elemento.precio, 0))
+carrito.forEach((elem) => console.log(`Seleccionaste el funko de ${elem.nombre} y cuesta $${elem.precio}`))
+let totalCompra = carrito.reduce((acum, elemento) => acum + elemento.precio, 0) 
+console.log(`El total de tu compra es $${totalCompra}`)
 
