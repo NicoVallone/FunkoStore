@@ -1,4 +1,3 @@
-
 class Productos {
     constructor(){
         this.funkos=[]
@@ -14,24 +13,6 @@ class Productos {
     }
 }
 
-class Carritos{
-    constructor(){
-        this.carritoFunko=[]
-    }
-    añadirCarrito(funko){
-        this.carritoFunko.push(funko)
-    }
-    getCarrito(){
-        return this.carritoFunko
-    }
-    abrirCarrito(){
-        this.carritoFunko.forEach((funko) => console.log(`El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`))
-    }
-
-}
-
-
-
 class Funko{
     constructor(nombre, version, categoria, subcategoria, tamaño, precio, codigo) {
         this.nombre = nombre;
@@ -42,9 +23,28 @@ class Funko{
         this.precio = precio;
         this.codigo = codigo
     }
-
 }
+
+class Carritos{
+    constructor(){
+        this.funkosSeleccionados=[]
+    }
+
+    seleccionarFunko(funko){
+        this.funkosSeleccionados.push(funko)
+    }   
+    getFunkosSeleccionados(){
+        return this.funkosSeleccionados
+    }
+    mostrarSeleccion(){
+        this.funkosSeleccionados.forEach((funk) => console.log(`Seleccionaste el funko de ${funk.nombre}. Cuesta $ ${funk.precio}`))
+    }
+}
+
+
 function nuevoFunko(){
+    let bandera = true
+    while(bandera) {
     let nombreFunko = prompt("Ingrese el nombre.")
     let versionFunko =prompt("¿Qué versión es?")
     let categoriaFunko = prompt("Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.).")
@@ -53,8 +53,30 @@ function nuevoFunko(){
     let precioFunko = prompt("Ingrese el precio del funko.")
     let funkoIngresado = new Funko (nombreFunko, versionFunko, categoriaFunko, subcategoriaFunko, tamañoFunko, precioFunko, listaProductos.funkos.length+1)
     console.log(funkoIngresado)
-    listaProductos.añadirFunko(funkoIngresado)
+    listaProductos.añadirFunko(funkoIngresado)    
+    let respuesta = prompt(`Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`)
+    if(respuesta =="no"){
+        bandera = false
+    }
 }
+}
+
+function eleccionFunko(){
+    let bandera2 = true
+    while(bandera2){
+    let codigoCompra= prompt("Ingrese el codigo que quiera comprar")
+    const busqueda1 = listaProductos.funkos.filter((elem) =>elem.codigo == codigoCompra)
+    console.log(busqueda1)
+    carrito.seleccionarFunko(busqueda1)
+    console.log(carrito)
+    console.log(carrito.funkosSeleccionados)
+    let otraEleccion = prompt("Querés sumar otro funko?")
+    if(otraEleccion=="no"){
+    bandera2=false
+    }
+    }
+}
+
 
 const funko1 = new Funko ("Jon Snow", "versión Lord Comander", "Series", "Game of Thrones", "mediano", 2500, 1)
 const funko2 = new Funko ("Micheal Jordan", "única versión", "Deportes", "Chicago Bulls", "mediano", 3000, 2)
@@ -82,40 +104,27 @@ listaProductos.añadirFunko(funko10)
 listaProductos.añadirFunko(funko11)
 listaProductos.añadirFunko(funko12)
 
-const carrito = new Carritos()
+
+// console.log(listaProductos)
+// listaProductos.funkos.forEach((funko) => console.log(`Tenemos el funko ${funko.tamaño} de ${funko.nombre} ${funko.version} a ${funko.precio}. (Código ${funko.codigo}) `))
 
 
-// const miObjeto = {"stock": 1,funko1}
 
-console.log(listaProductos.getFunkos())
+// console.log(listaProductos)
+// listaProductos.funkos.forEach((funko) => console.log(`Tenemos el funko ${funko.tamaño} de ${funko.nombre} ${funko.version} a ${funko.precio}. (Código ${funko.codigo}) `))
+
+
+
+const carrito = new Carritos ()
+
 listaProductos.mostrarFunkos()
 
-let bandera1 = true
-let pregunta = prompt("Querés cargar un funko?")
-if (pregunta=="si"){
-    while(bandera1){
-    nuevoFunko()
-    let pregunta2 = prompt("Querés cargar otro funko?")
-    if(pregunta2.toLowerCase() == "no"){
-        bandera1=false
-     }
-}
-}
+// nuevoFunko()
 
-let bandera2=true
-while(bandera2){
-let codigoCompra = prompt("Ingrese el código del funko que quiere comprar")
-let busqueda1 = listaProductos.funkos.filter((elem) =>elem.codigo == codigoCompra)
-console.log(busqueda1)
-carrito.añadirCarrito(busqueda1)
-console.log(carrito.getCarrito())
-let pregunta2 = prompt("¿Querés sumar otro?")
-if (pregunta2=="no"){
-    bandera2=false
-}
-}
+eleccionFunko()
 
-for (let elem of carrito.carritoFunko)
-console.log(elem)
-// carritoFunko.forEach((funko) => console.log(`El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`))
+carrito.mostrarSeleccion()
+
+carrito.funkosSeleccionados.forEach((elem) => console.log(`Seleccionaste el funko de ${elem.nombre} y cuesta $${elem.nombre}`))
+console.log(carrito.funkosSeleccionados.reduce((acum, elemento) => acum + elemento.precio, 0))
 
