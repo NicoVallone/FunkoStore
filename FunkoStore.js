@@ -1,3 +1,6 @@
+
+//CLASES --------------------------------------------------------------------
+
 class Productos {
     constructor(){
         this.funkos=[]
@@ -53,6 +56,7 @@ class Productos {
             if(respuesta =="no"){
                 bandera = false
             }
+        
         }
     }
 
@@ -104,6 +108,22 @@ class Productos {
             )
         );
     }
+    busquedaPrecio(){
+        let precio = parseInt(prompt(
+            "Decinos el valor máximo del funko"
+        ));
+        const busqueda4 = listaProductos.funkos.filter((funk)=>
+            funk.precio <= precio
+        );
+        return busqueda4
+    }
+    getBusquedaPrecio(){
+        this.busquedaPrecio().forEach((el)=>
+            console.log(
+                `Tenemos el funko ${el.tamaño} de ${el.nombre} ${el.version} a $${el.precio} (Código ${el.codigo})`
+            )
+        );
+    }
 }
 
 
@@ -142,7 +162,7 @@ class Carritos{
 }
 
 
-
+// FUNCIONES GENERALES  -------------------------------------------------------
 
 function eleccionFunko(){
     let bandera2 = true
@@ -217,7 +237,7 @@ function buscarFunko(opcionBusqueda){
             }
             break;
         case 3:
-        
+            listaProductos.getBusquedaPrecio()
         break;
         case 0:
             preguntarOpcion()
@@ -227,7 +247,7 @@ function buscarFunko(opcionBusqueda){
 }
 
 
-
+// OBJETOS Y ARRAYS-----------------------------------------------------
 
 
 const funko1 = new Funko ("Jon Snow", "versión Lord Comander", "Series", "Game of Thrones", "mediano", 2500, 1)
@@ -258,7 +278,7 @@ listaProductos.añadirFunko(funko12)
 const carrito = new Carritos()
 
 
-
+// CODIGO ----------------------------------------------
 
 let salir = true
 while(salir){
