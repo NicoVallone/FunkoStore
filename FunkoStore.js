@@ -125,10 +125,10 @@ class Productos {
         );
     }
     eliminarFunko(){
-        let eliminar = prompt(
+        let eliminar = parseInt(prompt(
             "Decinos el código del funko que querés eliminar"
-        );
-        listaProductos.funkos.splice(eliminar, 1);
+        ));
+        listaProductos.funkos.splice(eliminar-1, 1);
         console.log(listaProductos.funkos.filter((funko)=>
         funko.codigo == eliminar
         ));
