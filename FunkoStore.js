@@ -124,6 +124,16 @@ class Productos {
             )
         );
     }
+    eliminarFunko(){
+        let eliminar = prompt(
+            "Decinos el código del funko que querés eliminar"
+        );
+        listaProductos.funkos.splice(eliminar, 1);
+        console.log(listaProductos.funkos.filter((funko)=>
+        funko.codigo == eliminar
+        ));
+
+    }
 }
 
 
@@ -185,14 +195,15 @@ function preguntarOpcion(){
                         2 - Comprar Funko
                         3 - Cargar un funko nuevo
                         4 - Buscador de funkos
-                        5 - Salir
+                        5 - Eliminar
+                        6 - Salir
     `))
     menu(opcion)
 }
 
 function menu(opcionSeleccionada){
     switch(opcionSeleccionada){
-        case 5:
+        case 6:
             salir = false
             alert(`Gracias por visitarnos`)
             break;
@@ -217,6 +228,11 @@ function menu(opcionSeleccionada){
             `))
             buscarFunko(preguntaBusqueda)
             break;
+        case 5:
+            listaProductos.eliminarFunko()
+            listaProductos.mostrarFunkos()
+
+            break;
         default:
             alert(`Por favor ingrese una opción valida`)
     }
@@ -239,10 +255,6 @@ function buscarFunko(opcionBusqueda){
         case 3:
             listaProductos.getBusquedaPrecio()
         break;
-        case 0:
-            preguntarOpcion()
-            break;
-
     }
 }
 
