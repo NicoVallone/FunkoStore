@@ -1,0 +1,114 @@
+
+
+
+/***********INICIO**********/
+
+
+main{
+    .banner{
+        display: flex;
+        flex-direction: row;
+        gap: 100px;
+        background-color: #ffffff;
+        margin-top: 10px;
+        .mainOpcion{
+            display:inline-block;
+            max-width: 250px;
+            
+        }
+    }
+    .cuerpo{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 4rem;
+        margin-bottom: 6rem;
+        &__frase{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 1rem;
+            color: $primary-color;
+            &__title{
+                font-size: $large-text;
+            }
+            &__text{
+                font-size: $medium-text;
+                text-align: justify;
+            }
+        }
+        div{
+            div{
+                div{
+                    img{
+                    width: 600px;
+                    }
+                }
+
+            }
+        }
+    }
+    .cuerpo__enlaces{
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        .cuerpo__seccion{
+            @include home_flex(flex, column, center);
+            font-size: $medium-text;
+            color: $primary-color;
+            padding-top: 3.5rem;
+            img{
+                width: 250px;
+                border-color: $back-color;
+                border-style: solid;
+                border-width: 4px;
+                border-radius: 127px;
+                &:hover{
+                    border-color: $secondary-color;
+                    border-style: solid;
+                    border-width: 4px;
+                    border-radius: 127px;
+                }
+
+            }
+        }
+    }
+    
+}
+
+
+@media screen and (max-width: 900px) {
+    main{
+        .cuerpo{
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            &__frase{
+                &__title{
+                    font-size: $medium-text;
+                }
+                &__text{
+                    font-size: $small-text;
+                }
+            }
+            div{
+                div{
+                    div{
+                        img{
+                            max-width: 80vw;
+                        }
+                    }
+                }
+            }
+        }
+        .cuerpo__enlaces {
+            display: flex;
+            flex-direction: column;
+            margin-top: 4rem;
+         }
+    }
+}
+
+
+
+/***********FIN INICIO**********/

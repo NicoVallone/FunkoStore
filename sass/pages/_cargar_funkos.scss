@@ -1,0 +1,44 @@
+/***********QUIERO JUGAR**********/
+.mainCarga{
+    display: flex;
+    justify-content: center;
+    .after__formulario{
+        height: 500px;
+    }
+    .formularioCarga{
+        border-color: $primary-color;
+        border-style: solid;
+        border-width: 1px;
+        width: 500px;
+        padding: 10px;
+        margin-top: 20px;
+        max-height: 269px;
+        form{
+            button{
+                background-color: $secondary-color;
+            }
+            div{
+                label{
+                    color: $primary-color;
+                }
+            }
+            fieldset{
+                div{
+                    div{
+                        input:checked{
+                            background-color: $secondary-color;
+                            border-color: $secondary-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+/***********FIN QUIERO JUGAR**********/

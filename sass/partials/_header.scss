@@ -1,0 +1,59 @@
+
+/***********HEADER**********/
+
+.header {
+    display: flex;
+    flex-direction: column;
+    // background-image: url(../../Assets/low-poly-grid-haikei.svg);
+    .logo{
+        margin-left: 10px;
+        margin-top: 10px;
+        width: 200px;
+    }
+    .line{
+        margin: 0 auto;
+        width: 100%;
+        margin-top: 10px;
+        height: 2px;
+    }
+    nav{
+        font-size: $medium-text;
+        margin-left: 10px;
+        div{
+            div{
+                ul{
+                    li{
+                        margin: 8px;
+                        a{
+                            color: $primary-color;
+                            &:hover{
+                                color: $secondary-color !important;
+                                border-bottom-color: $secondary-color;
+                                border-bottom-width: 2px;
+                                border-bottom-style: solid;
+                                padding-bottom: 0rem;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+       
+}   
+
+
+@media screen and (max-width: 1000px){
+    .header {
+        align-items: center;
+        .logo{
+            margin-left: 0px;
+            margin-top: 10px;
+            width: 140px;
+        }
+    }    
+}
+
+/***********FIN HEADER**********/

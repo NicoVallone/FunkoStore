@@ -1,0 +1,243 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap");
+/***********VARIABLES**********/
+/***********FIN VARIABLES**********/
+/***********NORMALIZACION**********/
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto Slab', serif; }
+
+html {
+  font-size: 65.5%;
+  font-family: 'Roboto Slab', serif;
+  background-color: #FFFFFF; }
+
+.main {
+  background-color: #FFFFFF; }
+
+body .body {
+  background-color: #FFFFFF; }
+
+main {
+  margin: 0 auto;
+  max-width: 1380px;
+  background-color: #FFFFFF; }
+
+/***********FIN NORMALIZACION**********/
+/***********HEADER**********/
+.header {
+  display: flex;
+  flex-direction: column; }
+  .header .logo {
+    margin-left: 10px;
+    margin-top: 10px;
+    width: 200px; }
+  .header .line {
+    margin: 0 auto;
+    width: 100%;
+    margin-top: 10px;
+    height: 2px; }
+  .header nav {
+    font-size: 1.3rem;
+    margin-left: 10px; }
+    .header nav div div ul li {
+      margin: 8px; }
+      .header nav div div ul li a {
+        color: #1C110A; }
+        .header nav div div ul li a:hover {
+          color: #D00000 !important;
+          border-bottom-color: #D00000;
+          border-bottom-width: 2px;
+          border-bottom-style: solid;
+          padding-bottom: 0rem; }
+
+@media screen and (max-width: 1000px) {
+  .header {
+    align-items: center; }
+    .header .logo {
+      margin-left: 0px;
+      margin-top: 10px;
+      width: 140px; } }
+
+/***********FIN HEADER**********/
+/***********FOOTER**********/
+.footer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  margin: 20px;
+  font-size: 1.4rem;
+  color: #1C110A; }
+  .footer__datos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px; }
+    .footer__datos__contacto {
+      margin-bottom: 0px; }
+  .footer__redes {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-end;
+    gap: 0.5rem; }
+    .footer__redes a {
+      border-bottom-color: black;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      padding-bottom: 0rem; }
+    .footer__redes a:hover {
+      border-bottom-color: #D00000;
+      border-bottom-width: 2px;
+      border-bottom-style: solid;
+      padding-bottom: 0rem; }
+
+@media screen and (max-width: 500px) {
+  .footer {
+    font-size: 1rem; } }
+
+/***********FIN FOOTER**********/
+/***********INICIO**********/
+main .banner {
+  display: flex;
+  flex-direction: row;
+  gap: 100px;
+  background-color: #ffffff;
+  margin-top: 10px; }
+  main .banner .mainOpcion {
+    display: inline-block;
+    max-width: 250px; }
+
+main .cuerpo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4rem;
+  margin-bottom: 6rem; }
+  main .cuerpo__frase {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    color: #1C110A; }
+    main .cuerpo__frase__title {
+      font-size: 2.5rem; }
+    main .cuerpo__frase__text {
+      font-size: 1.3rem;
+      text-align: justify; }
+  main .cuerpo div div div img {
+    width: 600px; }
+
+main .cuerpo__enlaces {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly; }
+  main .cuerpo__enlaces .cuerpo__seccion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.3rem;
+    color: #1C110A;
+    padding-top: 3.5rem; }
+    main .cuerpo__enlaces .cuerpo__seccion img {
+      width: 250px;
+      border-color: #FFFFFF;
+      border-style: solid;
+      border-width: 4px;
+      border-radius: 127px; }
+      main .cuerpo__enlaces .cuerpo__seccion img:hover {
+        border-color: #D00000;
+        border-style: solid;
+        border-width: 4px;
+        border-radius: 127px; }
+
+@media screen and (max-width: 900px) {
+  main .cuerpo {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem; }
+    main .cuerpo__frase__title {
+      font-size: 1.3rem; }
+    main .cuerpo__frase__text {
+      font-size: 1.4rem; }
+    main .cuerpo div div div img {
+      max-width: 80vw; }
+  main .cuerpo__enlaces {
+    display: flex;
+    flex-direction: column;
+    margin-top: 4rem; } }
+
+/***********FIN INICIO**********/
+/***********FIN ayuda**********/
+main .afterimage__contactanos h3 {
+  font-size: 2.5rem;
+  color: #1C110A;
+  margin-top: 20px; }
+
+main .afterimage__contactanos p {
+  font-size: 1.3rem;
+  color: #1C110A; }
+
+main .afterimage__contactanos div form button {
+  background-color: #D00000; }
+
+main .afterimage__contactanos div form div label {
+  color: #1C110A;
+  font-size: 1.4rem; }
+
+main .afterimage__contactanos div form div input {
+  width: 100%; }
+
+main .afterimage__contactanos div form div textarea {
+  height: 200px; }
+
+@media screen and (max-width: 600px) {
+  .afterimage__contactanos div form div input {
+    width: 100%; } }
+
+/***********FIN AYUDA**********/
+/***********QUIERO JUGAR**********/
+.mainCarga {
+  display: flex;
+  justify-content: center; }
+  .mainCarga .after__formulario {
+    height: 500px; }
+  .mainCarga .formularioCarga {
+    border-color: #1C110A;
+    border-style: solid;
+    border-width: 1px;
+    width: 500px;
+    padding: 10px;
+    margin-top: 20px;
+    max-height: 269px; }
+    .mainCarga .formularioCarga form button {
+      background-color: #D00000; }
+    .mainCarga .formularioCarga form div label {
+      color: #1C110A; }
+    .mainCarga .formularioCarga form fieldset div div input:checked {
+      background-color: #D00000;
+      border-color: #D00000; }
+
+/***********FIN QUIERO JUGAR**********/
+/***********CONTACTANOS**********/
+main .buscador {
+  height: 500px; }
+  main .buscador__funkos {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 40px;
+    justify-content: center; }
+    main .buscador__funkos__grupo {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 40px;
+      width: 40vw; }
+
+@media screen and (max-width: 600px) {
+  .afterimage__contactanos div form div input {
+    width: 100%; } }
+
+/***********FIN CONTACTANOS**********/

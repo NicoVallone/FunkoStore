@@ -1,11 +1,5 @@
 
 
-
-
-
-
-
-
     const funkoElegido = {
         nombre: busqueda1.nombre,
         version: busqueda1.version,

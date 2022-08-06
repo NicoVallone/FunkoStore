@@ -1,0 +1,60 @@
+
+
+
+/***********FIN ayuda**********/
+
+
+main{
+    .afterimage__contactanos{
+        
+        h3{
+            font-size: $large-text;
+            color: $primary-color;
+            margin-top: 20px;
+        }
+        p{
+            font-size: $medium-text;
+            color: $primary-color;  
+        }
+        div{
+            form{
+                button{
+                    background-color: $secondary-color;
+                }
+                div{
+                    label{
+                        color: $primary-color;
+                        font-size: $small-text;
+                    }
+                    input{
+                        width: 100%;
+                    }
+                    textarea{
+                        height: 200px;
+                    }
+                }
+            }
+        }
+    
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .afterimage__contactanos{
+        div{
+            form{
+                div{
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    
+    }
+}
+
+
+
+
+/***********FIN AYUDA**********/

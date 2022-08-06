@@ -11,54 +11,54 @@ class Productos {
     getFunkos(){
         return this.funkos
     }
-    mostrarFunkos(){
-        this.funkos.forEach((funko) => 
-            console.log(
-                `El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
-            )
-        );
-    }
-    nuevoFunko(){
-        let bandera = true
-        while(bandera) {
-            let nombreFunko = prompt(
-                `Ingrese el nombre.`
-            );
-            let versionFunko =prompt(
-                "¿Qué versión es?"
-            );
-            let categoriaFunko = prompt(
-                "Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.)."
-            );
-            let subcategoriaFunko = prompt(
-                "Ingrese la subcategoría (nombre del programa, película, equipo o banda)."
-            );
-            let tamañoFunko = prompt(
-                "Ingrese el tamaño del funko (grande, chico, mediano)."
-            );
-            let precioFunko = parseInt(prompt(
-                "Ingrese el precio del funko."
-            ));
-            let funkoIngresado = new Funko (
-                nombreFunko, 
-                versionFunko, 
-                categoriaFunko, 
-                subcategoriaFunko, 
-                tamañoFunko, 
-                precioFunko, 
-                listaProductos.funkos.length+1
-            );
-            console.log(funkoIngresado)
-            listaProductos.añadirFunko(funkoIngresado)    
-            let respuesta = prompt(
-                `Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`
-            );
-            if(respuesta =="no"){
-                bandera = false
-            }
+    // mostrarFunkos(){
+    //     this.funkos.forEach((funko) => 
+    //         console.log(
+    //             `El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
+    //         )
+    //     );
+    // }
+    // nuevoFunko(){
+    //     let bandera = true
+    //     while(bandera) {
+    //         let nombreFunko = prompt(
+    //             `Ingrese el nombre.`
+    //         );
+    //         let versionFunko =prompt(
+    //             "¿Qué versión es?"
+    //         );
+    //         let categoriaFunko = prompt(
+    //             "Ingrese la categoría (Peliculas, Series, Deportes, Música, etc.)."
+    //         );
+    //         let subcategoriaFunko = prompt(
+    //             "Ingrese la subcategoría (nombre del programa, película, equipo o banda)."
+    //         );
+    //         let tamañoFunko = prompt(
+    //             "Ingrese el tamaño del funko (grande, chico, mediano)."
+    //         );
+    //         let precioFunko = parseInt(prompt(
+    //             "Ingrese el precio del funko."
+    //         ));
+    //         let funkoIngresado = new Funko (
+    //             nombreFunko, 
+    //             versionFunko, 
+    //             categoriaFunko, 
+    //             subcategoriaFunko, 
+    //             tamañoFunko, 
+    //             precioFunko, 
+    //             listaProductos.funkos.length+1
+    //         );
+    //         console.log(funkoIngresado)
+    //         listaProductos.añadirFunko(funkoIngresado)    
+    //         let respuesta = prompt(
+    //             `Agregaste correctamente el funko de ${nombreFunko}! Querés agregar otro? (si|no)`
+    //         );
+    //         if(respuesta =="no"){
+    //             bandera = false
+    //         }
         
-        }
-    }
+    //     }
+    // }
 
     busquedaNombre(){
         let nombre = prompt(
@@ -290,11 +290,50 @@ listaProductos.añadirFunko(funko12)
 const carrito = new Carritos()
 
 
+//////////////////////////CARGAR FUNKOS///////////////////////////
+
+let cargarFunko = document.getElementById("cargar_funko");
+cargarFunko.addEventListener("click", respuestaClick);
+
+function respuestaClick(){
+    let nombreFunko = document.getElementById("nombreFunko");
+    let versionFunko = document.getElementById("versionFunko");
+    let categoriaFunko = document.getElementById("categoriaFunko");
+    let subcategoriaFunko = document.getElementById("subcategoriaFunko");
+    let tamanioFunko = document.getElementById("tamanioFunko");
+    let precioFunko = document.getElementById("precioFunko");
+    let funkoIngresado = new Funko (
+        nombreFunko.value, 
+        versionFunko.value, 
+        categoriaFunko.value, 
+        subcategoriaFunko.value, 
+        tamanioFunko.value, 
+        precioFunko.value, 
+        listaProductos.funkos.length+1
+    );
+    console.log(funkoIngresado)
+    listaProductos.añadirFunko(funkoIngresado)    
+    alert(`Agregaste correctamente el funko de ${nombreFunko}!`);
+}
+
+
+
+let mostrarLista = document.getElementById("mostrar_funkos");
+mostrarLista.addEventListener("click", mostrarFunkos)
+
+function mostrarFunkos(){
+    listaProductos.funkos.forEach((funko) => 
+        alert(`El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
+        )
+    );
+};
+
+
 // CODIGO ----------------------------------------------
 
-let salir = true
-while(salir){
-preguntarOpcion()
-}
+// let salir = true
+// while(salir){
+// preguntarOpcion()
+// }
 
 

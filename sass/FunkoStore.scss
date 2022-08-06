@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300&display=swap');
+
+
+// MISC *****************************
+@import './misc/variables';
+@import './misc/normalize';
+@import './misc/animations';
+@import './misc/mixins';
+
+// PARCIALES**************************
+@import './partials/header';
+@import './partials/footer';
+
+// PAGINAS ************************************************
+@import './pages/home';
+@import './pages/ayuda';
+@import './pages/cargar_funkos';
+
+@import './pages/buscador_funkos';

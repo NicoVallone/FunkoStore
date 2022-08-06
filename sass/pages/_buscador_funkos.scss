@@ -1,0 +1,38 @@
+/***********CONTACTANOS**********/
+
+main{
+    .buscador{
+        height: 500px;
+        &__funkos{
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-top: 40px;
+            justify-content: center;
+            &__grupo{
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                margin-top: 40px;
+                width: 40vw;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .afterimage__contactanos{
+        div{
+            form{
+                div{
+                    input{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    
+    }
+}
+
+/***********FIN CONTACTANOS**********/
