@@ -11,13 +11,13 @@ class Productos {
     getFunkos(){
         return this.funkos
     }
-    // mostrarFunkos(){
-    //     this.funkos.forEach((funko) => 
-    //         console.log(
-    //             `El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
-    //         )
-    //     );
-    // }
+    mostrarFunkos(){
+        this.funkos.forEach((funko) => 
+            console.log(
+                `El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
+            )
+        );
+    }
     // nuevoFunko(){
     //     let bandera = true
     //     while(bandera) {
@@ -138,12 +138,12 @@ class Productos {
 
 
 class Funko{
-    constructor(nombre, version, categoria, subcategoria, tamaño, precio, codigo) {
+    constructor(nombre, version, categoria, subcategoria, tamanio, precio, codigo) {
         this.nombre = nombre;
         this.version = version;
         this.categoria = categoria;
         this.subcategoria = subcategoria;
-        this.tamaño = tamaño;
+        this.tamanio = tamanio;
         this.precio = precio;
         this.codigo = codigo
     }
@@ -263,7 +263,7 @@ function buscarFunko(opcionBusqueda){
 
 
 const funko1 = new Funko ("Jon Snow", "versión Lord Comander", "Series", "Game of Thrones", "mediano", 2500, 1)
-const funko2 = new Funko ("Micheal Jordan", "única versión", "Deportes", "Chicago Bulls", "mediano", 3000, 2)
+const funko2 = new Funko ("Michael Jordan", "única versión", "Deportes", "Chicago Bulls", "mediano", 3000, 2)
 const funko3 = new Funko ("Spiderman", "versión No Way Home", "Peliculas", "Spiderman", "mediano", 2000, 3)
 const funko4 = new Funko ("Deadpool", "única versión", "Peliculas", "Deadepool", "mediano", 2500, 4)
 const funko5 = new Funko ("Angus Young", "única versión", "Musica", "ACDC", "mediano", 3000, 5)
@@ -290,12 +290,45 @@ listaProductos.añadirFunko(funko12)
 const carrito = new Carritos()
 
 
+
+//////////////////////////LISTADO DE FUNKOS///////////////////////////
+
+let vertodos = document.getElementById("ver__todos")
+vertodos.addEventListener("click", mostrarFunkos)
+
+let nuevaBusqueda = document.getElementById("nueva__busqueda")
+nuevaBusqueda.addEventListener("click", borrarListado)
+
+let resultadoBusqueda = document.getElementById("resultado__busqueda")
+
+function mostrarFunkos(){
+    listaProductos.funkos.forEach((funko) => {
+        let tarjeta = document.createElement("div")
+        tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
+                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <div class="card-body">
+                                    <h3 class="card-title">${funko.nombre}</h3>
+                                    <h4 class="card-title">${funko.subcategoria}</h4>
+                                    <h5 class="card-title">$${funko.precio}</h5>
+                                    <p class="card-text">Funko ${funko.tamanio} ${funko.version}</p>
+                                    <button class="agregar__carrito" type="button" id="">Agregar al carrito</button>
+                                </div>
+                            </div>`
+        resultadoBusqueda.appendChild(tarjeta)
+    });
+};
+
+function borrarListado(){
+    resultadoBusqueda.innerHTML=""
+}
+
+
+
 //////////////////////////CARGAR FUNKOS///////////////////////////
 
-let cargarFunko = document.getElementById("cargar_funko");
-cargarFunko.addEventListener("click", respuestaClick);
 
-function respuestaClick(){
+
+function crearFunko(){
     let nombreFunko = document.getElementById("nombreFunko");
     let versionFunko = document.getElementById("versionFunko");
     let categoriaFunko = document.getElementById("categoriaFunko");
@@ -311,22 +344,16 @@ function respuestaClick(){
         precioFunko.value, 
         listaProductos.funkos.length+1
     );
-    console.log(funkoIngresado)
     listaProductos.añadirFunko(funkoIngresado)    
     alert(`Agregaste correctamente el funko de ${nombreFunko}!`);
 }
 
+// const cargarFunko = document.getElementById("cargar__funko");
+// cargarFunko.addEventListener("click", crearFunko)
 
 
-let mostrarLista = document.getElementById("mostrar_funkos");
-mostrarLista.addEventListener("click", mostrarFunkos)
 
-function mostrarFunkos(){
-    listaProductos.funkos.forEach((funko) => 
-        alert(`El funko ${funko.tamaño} de ${funko.nombre} ${funko.version} cuesta ${funko.precio}. (código ${funko.codigo})`
-        )
-    );
-};
+
 
 
 // CODIGO ----------------------------------------------

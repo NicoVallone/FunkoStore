@@ -99,58 +99,76 @@ main {
 
 /***********FIN FOOTER**********/
 /***********INICIO**********/
-main .banner {
+.home {
   display: flex;
-  flex-direction: row;
-  gap: 100px;
-  background-color: #ffffff;
-  margin-top: 10px; }
-  main .banner .mainOpcion {
-    display: inline-block;
-    max-width: 250px; }
-
-main .cuerpo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 4rem;
-  margin-bottom: 6rem; }
-  main .cuerpo__frase {
+  flex-direction: column;
+  gap: 30px;
+  margin: 0 auto;
+  max-width: 1380px; }
+  .home .banner {
+    background-image: url(../../Assets/BANNER.png);
+    background-size: cover;
+    background-position: center;
+    height: 800px; }
+  .home .promos {
     display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-    color: #1C110A; }
-    main .cuerpo__frase__title {
-      font-size: 2.5rem; }
-    main .cuerpo__frase__text {
-      font-size: 1.3rem;
-      text-align: justify; }
-  main .cuerpo div div div img {
-    width: 600px; }
-
-main .cuerpo__enlaces {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly; }
-  main .cuerpo__enlaces .cuerpo__seccion {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 100px;
+    background-color: #ffffff;
+    margin-top: 10px; }
+    .home .promos__categoria {
+      display: flex;
+      flex-direction: column;
+      gap: 10px; }
+      .home .promos__categoria__carrusel {
+        display: flex;
+        flex-direction: row;
+        gap: 10px; }
+        .home .promos__categoria__carrusel .mainOpcion {
+          display: inline-block;
+          max-width: 250px; }
+  .home .cuerpo {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    font-size: 1.3rem;
-    color: #1C110A;
-    padding-top: 3.5rem; }
-    main .cuerpo__enlaces .cuerpo__seccion img {
-      width: 250px;
-      border-color: #FFFFFF;
-      border-style: solid;
-      border-width: 4px;
-      border-radius: 127px; }
-      main .cuerpo__enlaces .cuerpo__seccion img:hover {
-        border-color: #D00000;
+    gap: 4rem;
+    margin-bottom: 6rem; }
+    .home .cuerpo__frase {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      color: #1C110A; }
+      .home .cuerpo__frase__title {
+        font-size: 2.5rem; }
+      .home .cuerpo__frase__text {
+        font-size: 1.3rem;
+        text-align: justify; }
+    .home .cuerpo div div div img {
+      width: 600px; }
+  .home .cuerpo__enlaces {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly; }
+    .home .cuerpo__enlaces .cuerpo__seccion {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-size: 1.3rem;
+      color: #1C110A;
+      padding-top: 3.5rem; }
+      .home .cuerpo__enlaces .cuerpo__seccion img {
+        width: 250px;
+        border-color: #FFFFFF;
         border-style: solid;
         border-width: 4px;
         border-radius: 127px; }
+        .home .cuerpo__enlaces .cuerpo__seccion img:hover {
+          border-color: #D00000;
+          border-style: solid;
+          border-width: 4px;
+          border-radius: 127px; }
 
 @media screen and (max-width: 900px) {
   main .cuerpo {
@@ -221,8 +239,25 @@ main .afterimage__contactanos div form div textarea {
 
 /***********FIN QUIERO JUGAR**********/
 /***********CONTACTANOS**********/
+main .resultado__busqueda {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: space-between; }
+  main .resultado__busqueda div div button {
+    background-color: #D00000;
+    color: #1C110A;
+    border-color: #D00000;
+    width: 165px;
+    height: 20px; }
+
 main .buscador {
-  height: 500px; }
+  height: 300px; }
+  main .buscador button {
+    background-color: #D00000;
+    font: bold;
+    color: #1C110A; }
   main .buscador__funkos {
     display: flex;
     flex-direction: row;
@@ -235,6 +270,12 @@ main .buscador {
       gap: 10px;
       margin-top: 40px;
       width: 40vw; }
+      main .buscador__funkos__grupo input {
+        color: #1C110A;
+        font-size: 1.3rem; }
+      main .buscador__funkos__grupo button {
+        background-color: #D00000;
+        color: #1C110A; }
 
 @media screen and (max-width: 600px) {
   .afterimage__contactanos div form div input {

@@ -4,18 +4,41 @@
 /***********INICIO**********/
 
 
-main{
+.home{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin: 0 auto;
+    max-width: 1380px;
     .banner{
+        background-image: url(../../Assets/BANNER.png);
+        background-size:cover;
+        background-position: center;
+        height: 800px;
+    }
+    .promos{
         display: flex;
         flex-direction: row;
+        justify-content: space-between;
         gap: 100px;
         background-color: #ffffff;
         margin-top: 10px;
-        .mainOpcion{
-            display:inline-block;
-            max-width: 250px;
-            
+        &__categoria{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            &__carrusel{
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+                .mainOpcion{
+                    display:inline-block;
+                    max-width: 250px;
+                    
+                }
+            }
         }
+        
     }
     .cuerpo{
         display: flex;

@@ -1,8 +1,31 @@
 /***********CONTACTANOS**********/
 
 main{
+    .resultado__busqueda{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: space-between;
+        div{
+            div{
+                button{
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                    border-color: $secondary-color;
+                    width: 165px;
+                    height: 20px;
+                }
+            }
+        }
+    };
     .buscador{
-        height: 500px;
+        height: 300px;
+        button{
+            background-color: $secondary-color;
+            font: bold;
+            color: $primary-color;
+        }
         &__funkos{
             display: flex;
             flex-direction: row;
@@ -15,6 +38,14 @@ main{
                 gap: 10px;
                 margin-top: 40px;
                 width: 40vw;
+                input{
+                    color: $primary-color;
+                    font-size: $medium-text;
+                }
+                button{
+                    background-color: $secondary-color;
+                    color: $primary-color;
+                }
             }
         }
     }
