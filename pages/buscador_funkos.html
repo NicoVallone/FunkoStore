@@ -41,27 +41,29 @@
     <div class="buscador__funkos">
       <div class="buscador__funkos__grupo">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Ingrese el nombre" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar por nombre</button>
+          <input id="input__nombre" type="text" class="form-control" placeholder="Ingrese el nombre" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="btn__nombre">Buscar por nombre</button>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Ingrese la categoría" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar por categoría</button>
+          <input id="input__categoria" type="text" class="form-control" placeholder="Ingrese la categoría" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="btn__categoria">Buscar por categoría</button>
         </div>
       </div>
       <div class="buscador__funkos__grupo">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Ingrese la pelicula, serie, banda o equipo" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar por subcategoria</button>
+          <input id="input__subcategoria" type="text" class="form-control" placeholder="Ingrese la pelicula, serie, banda o equipo" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="btn__subcategoria">Buscar por subcategoria</button>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Ingrese el precio" aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Buscar por precio</button>
+          <input id="input__precio" type="text" class="form-control" placeholder="Ingrese el precio" aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn btn-outline-secondary" type="button" id="btn__precio">Buscar por precio</button>
         </div>
       </div>
     </div>
     <button id="ver__todos" type="button" class="btn">Ver todos</button>
     <button id="nueva__busqueda" type="button" class="btn">Nueva búsqueda</button>
+  </section>
+  <section id="frase__busqueda">
   </section>
   <section id="resultado__busqueda" class=" resultado__busqueda">
   </section>
@@ -80,6 +82,7 @@
   </div>
 </footer>
 <script src="../FunkoStore.js"></script>
+<script src="../buscador_funkos.js"></script>
 <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
