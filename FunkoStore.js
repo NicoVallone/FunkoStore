@@ -51,6 +51,7 @@ class Carritos{
 
     seleccionarFunko(funko){
         this.funkosSeleccionados.push(funko)
+        console.log(carrito)
     }   
     getFunkosSeleccionados(){
         return this.funkosSeleccionados
@@ -231,14 +232,20 @@ function mostrarFunkos(){
                                     <h4 class="card-title">${funko.subcategoria}</h4>
                                     <h5 class="card-title">$${funko.precio}</h5>
                                     <p class="card-text">Funko ${funko.tamanio} ${funko.version}</p>
-                                    <button class="agregar__carrito" type="button" id="">Agregar al carrito</button>
+                                    <button class="agregar__carrito" type="button" id="agregarBtn${funko.codigo}">Agregar al carrito</button>
                                 </div>
                             </div>`
         resultadoBusqueda.appendChild(tarjeta)
+
+        let btnAgregar = document.getElementById(`agregarBtn${funko.codigo}`)
+        console.log(btnAgregar)
+        btnAgregar.addEventListener("click", () =>(carrito.seleccionarFunko(funko)))
     });
+
     let frase = document.createElement("div")
     frase.innerHTML = `<h2> Estos son todos los funkos que tenemos disponibles</h2>`
     fraseBusqueda.appendChild(frase)
+
 };
 
 function borrarListado(){

@@ -56,4 +56,12 @@ inputPrecio.addEventListener("keypress", function(event) {
 
 
 
+/////////////////-------------CARRITO
+
+if(localStorage.getItem("carrito")){
+    carrito.funkosSeleccionados = JSON.parse(localStorage.getItem("carrito"))
+}else{
+    localStorage.setItem("carrito", [])
+}
+
 
