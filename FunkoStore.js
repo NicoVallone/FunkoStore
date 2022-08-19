@@ -52,6 +52,7 @@ class Carritos{
     seleccionarFunko(funko){
         this.funkosSeleccionados.push(funko)
         console.log(carrito)
+        localStorage.setItem("carrito", JSON.stringify(this.funkosSeleccionados))
     }   
     getFunkosSeleccionados(){
         return this.funkosSeleccionados
