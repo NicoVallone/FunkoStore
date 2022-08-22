@@ -53,6 +53,7 @@ class Carritos{
         this.funkosSeleccionados.push(funko)
         console.log(carrito)
         localStorage.setItem("carrito", JSON.stringify(this.funkosSeleccionados))
+        alert(`Seleccionaste el funko de ${funko.nombre}`)
     }   
     getFunkosSeleccionados(){
         return this.funkosSeleccionados
@@ -62,6 +63,7 @@ class Carritos{
             console.log(`Seleccionaste el funko de ${funk.nombre}. Cuesta $ ${funk.precio}`)
         );
     }
+
 
 }
 
@@ -171,6 +173,16 @@ function compraTotal(productosTotal){
     }else{
         parrafoCompra.innerHTML = `<p> El total de su compra es $${acumulador}`
     }
+}
+
+let btnVaciarCarrito = document.getElementById("vaciar_carrito")
+btnVaciarCarrito.addEventListener("click", vaciarCarrito)
+
+function vaciarCarrito(){
+    carrito.funkosSeleccionados=[];
+    localStorage.setItem("carrito",[])
+    parrafoCompra.innerHTML = `<p>No hay productos en el carrito</p>`
+    modalCarrito.innerHTML=" "
 }
 
 
