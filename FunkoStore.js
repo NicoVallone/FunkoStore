@@ -231,7 +231,7 @@ function mostrarCarrito(){
     carrito.funkosSeleccionados.forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -250,7 +250,7 @@ function mostrarFunkos(){
     listaProductos.funkos.forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -294,7 +294,7 @@ function getBusquedaNombre(){
     busquedaNombre().forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -325,7 +325,7 @@ function getBusquedaCategoria(){
     busquedaCategoria().forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -355,7 +355,7 @@ function getBusquedaSubcategoria(){
     busquedaSubcategoria().forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -385,7 +385,7 @@ function getBusquedaPrecio(){
     busquedaPrecio().forEach((funko) => {
         let tarjeta = document.createElement("div")
         tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
-                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
@@ -401,13 +401,5 @@ function getBusquedaPrecio(){
     fraseBusqueda.appendChild(frase)
     inputPrecio.value = ""
 }
-
-
-// CODIGO ----------------------------------------------
-
-// let salir = true
-// while(salir){
-// preguntarOpcion()
-// }
 
 
