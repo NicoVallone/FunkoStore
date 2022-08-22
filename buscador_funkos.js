@@ -23,7 +23,6 @@ btnSubcategoria.addEventListener("click", getBusquedaSubcategoria)
 const btnPrecio= document.getElementById("btn__precio");
 btnPrecio.addEventListener("click", getBusquedaPrecio)
 
-
 /////////// enter
 
 inputNombre.addEventListener("keypress", function(event) {

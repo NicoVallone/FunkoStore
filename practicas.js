@@ -1,3 +1,87 @@
+// FUNCIONES GENERALES  -------------------------------------------------------
+
+function eleccionFunko(){
+    let bandera2 = true
+    while(bandera2){
+        let codigoCompra= prompt(`Ingrese el codigo que quiera comprar`)
+        carrito.seleccionarFunko(listaProductos.funkos[codigoCompra-1])
+        console.log(carrito)
+        console.log(carrito.funkosSeleccionados)
+        let otraEleccion = prompt("Querés sumar otro funko?")
+        if(otraEleccion=="no"){
+            bandera2=false
+        }
+    }
+}
+
+function preguntarOpcion(){
+    let opcion = parseInt(prompt(`Ingrese la opción deseada:
+                        1 - Ver listado de funkos
+                        2 - Comprar Funko
+                        3 - Cargar un funko nuevo
+                        4 - Buscador de funkos
+                        5 - Eliminar
+                        6 - Salir
+    `))
+    menu(opcion)
+}
+
+function menu(opcionSeleccionada){
+    switch(opcionSeleccionada){
+        case 6:
+            salir = false
+            alert(`Gracias por visitarnos`)
+            break;
+        case 1:
+            listaProductos.mostrarFunkos()
+            break;
+        case 2:
+            eleccionFunko()
+            carrito.mostrarSeleccion()
+            carrito.totalCompra()
+            break;
+        case 3:
+            listaProductos.nuevoFunko()
+            break;
+        case 4:
+            let preguntaBusqueda = parseInt(prompt(`
+                ¿Cómo querés buscarlo?
+                1 - Por nombre
+                2 - Por categoría
+                3 - Por precio 
+                0 - Volver
+            `))
+            buscarFunko(preguntaBusqueda)
+            break;
+        case 5:
+            listaProductos.eliminarFunko()
+            listaProductos.mostrarFunkos()
+
+            break;
+        default:
+            alert(`Por favor ingrese una opción valida`)
+    }
+}
+
+
+
+function buscarFunko(opcionBusqueda){
+    switch(opcionBusqueda){
+        case 1:
+            listaProductos.getBusquedaNombre()
+            break;
+        case 2:
+            listaProductos.getBusquedaCategoria()
+            let refinarBusqueda = prompt(`Querés refinar la busqueda? (si|no)`)
+            if (refinarBusqueda.toLowerCase()=="si"){
+                listaProductos.getBusquedaSubcategoria()
+            }
+            break;
+        case 3:
+            listaProductos.getBusquedaPrecio()
+        break;
+    }
+}
 
 
     // nuevoFunko(){
