@@ -218,8 +218,31 @@ function crearFunko(){
 
 //////////////////////////buscador
 
+let btnCarrito = document.getElementById("carrito_boton")
+btnCarrito.addEventListener("click", () => {
+ 
+    mostrarCarrito(carrito.funkosSeleccionados)
+})
 
+let modalCarrito = document.getElementById("carrito")
 
+function mostrarCarrito(){
+    modalCarrito.innerHTML=" "
+    carrito.funkosSeleccionados.forEach((funko) => {
+        let tarjeta = document.createElement("div")
+        tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
+                                <img src="/Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
+                                <div class="card-body">
+                                    <h3 class="card-title">${funko.nombre}</h3>
+                                    <h4 class="card-title">${funko.subcategoria}</h4>
+                                    <h5 class="card-title">$${funko.precio}</h5>
+                                    <p class="card-text">Funko ${funko.tamanio} ${funko.version}</p>
+                                    <button class="agregar__carrito" type="button" id="agregarBtn${funko.codigo}">Agregar al carrito</button>
+                                </div>
+                            </div>`
+        modalCarrito.appendChild(tarjeta)
+    })
+}
 
 
 function mostrarFunkos(){
