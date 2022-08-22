@@ -4,6 +4,9 @@
 .header {
     display: flex;
     flex-direction: column;
+    #carrito_boton{
+        background-color: $secondary-color;
+    }
     .logo{
         margin-left: 10px;
         margin-top: 10px;
