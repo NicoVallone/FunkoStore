@@ -32,6 +32,7 @@ class Productos {
 }
 
 
+
 class Funko{
     constructor(nombre, version, categoria, subcategoria, tamanio, precio, codigo) {
         this.nombre = nombre;
@@ -40,7 +41,7 @@ class Funko{
         this.subcategoria = subcategoria;
         this.tamanio = tamanio;
         this.precio = precio;
-        this.codigo = codigo
+        this.codigo = listaProductos.funkos.length+1;
     }
 }
 
@@ -53,7 +54,14 @@ class Carritos{
         this.funkosSeleccionados.push(funko)
         console.log(carrito)
         localStorage.setItem("carrito", JSON.stringify(this.funkosSeleccionados))
-        alert(`Seleccionaste el funko de ${funko.nombre}`)
+        Toastify({
+            text: `Agregaste el funko de ${funko.nombre} al carrito`,
+            className: "info",
+            style: {
+              background: "linear-gradient(to right, #1C110A, #D00000)",
+            }
+          }).showToast();
+        
     }   
     getFunkosSeleccionados(){
         return this.funkosSeleccionados
@@ -69,35 +77,38 @@ class Carritos{
 
 // OBJETOS Y ARRAYS-----------------------------------------------------
 
+const listaProductos=new Productos()
 
 const funko1 = new Funko ("Jon Snow", "versión Lord Comander", "Series", "Game of Thrones", "mediano", 2500, 1)
-const funko2 = new Funko ("Michael Jordan", "única versión", "Deportes", "Chicago Bulls", "mediano", 3000, 2)
-const funko3 = new Funko ("Spiderman", "versión No Way Home", "Peliculas", "Spiderman", "mediano", 2000, 3)
-const funko4 = new Funko ("Deadpool", "única versión", "Peliculas", "Deadepool", "mediano", 2500, 4)
-const funko5 = new Funko ("Angus Young", "única versión", "Musica", "ACDC", "mediano", 3000, 5)
-const funko6 = new Funko ("Cersei Lannister", "única versión", "Series", "Game of Thrones", "mediano", 3500, 6)
-const funko7 = new Funko ("Saul Goodman", "única versión", "Series", "Better Call Saul", "mediano", 3600, 7)
-const funko8 = new Funko ("Thanos", "versión sin mano", "Peliculas", "Avengers", "grande", 6000, 8)
-const funko9 = new Funko ("Blue", "única versión", "Peliculas", "Jurassic World", "chico", 1200, 9)
-const funko10 = new Funko ("Harry Potter", "versión Caliz de Fuego", "Peliculas", "Harry Potter", "mediano", 2000, 10)
-const funko11 = new Funko ("Yoda", "versión Baby Yoda", "Peliculas", "Star Wars", "chico", 1100, 11)
-const funko12 = new Funko ("Freddy Mercury", "versión Live Aid", "Musica", "Queen", "mediano", 2500, 12)
-const listaProductos=new Productos()
 listaProductos.añadirFunko(funko1)
+const funko2 = new Funko ("Michael Jordan", "única versión", "Deportes", "Chicago Bulls", "mediano", 3000, 2)
 listaProductos.añadirFunko(funko2)
+const funko3 = new Funko ("Spiderman", "versión No Way Home", "Peliculas", "Spiderman", "mediano", 2000, 3)
 listaProductos.añadirFunko(funko3)
+const funko4 = new Funko ("Deadpool", "única versión", "Peliculas", "Deadepool", "mediano", 2500, 4)
 listaProductos.añadirFunko(funko4)
+const funko5 = new Funko ("Angus Young", "única versión", "Musica", "ACDC", "mediano", 3000, 5)
 listaProductos.añadirFunko(funko5)
+const funko6 = new Funko ("Cersei Lannister", "única versión", "Series", "Game of Thrones", "mediano", 3500, 6)
 listaProductos.añadirFunko(funko6)
+const funko7 = new Funko ("Saul Goodman", "única versión", "Series", "Better Call Saul", "mediano", 3600, 7)
 listaProductos.añadirFunko(funko7)
+const funko8 = new Funko ("Thanos", "versión sin mano", "Peliculas", "Avengers", "grande", 6000, 8)
 listaProductos.añadirFunko(funko8)
+const funko9 = new Funko ("Blue", "única versión", "Peliculas", "Jurassic World", "chico", 1200, 9)
 listaProductos.añadirFunko(funko9)
+const funko10 = new Funko ("Harry Potter", "versión Caliz de Fuego", "Peliculas", "Harry Potter", "mediano", 2000, 10)
 listaProductos.añadirFunko(funko10)
+const funko11 = new Funko ("Yoda", "versión Baby Yoda", "Peliculas", "Star Wars", "chico", 1100, 11)
 listaProductos.añadirFunko(funko11)
+const funko12 = new Funko ("Freddy Mercury", "versión Live Aid", "Musica", "Queen", "mediano", 2500, 12)
 listaProductos.añadirFunko(funko12)
+
 const carrito = new Carritos()
 
 
+
+console.log(listaProductos.funkos)
 
 
 ///////////////////////////cargar funkos
@@ -127,7 +138,7 @@ function crearFunko(){
 
 
 
-//////////////////////////buscador
+///////////////////////-------------CARRITO
 
 let btnCarrito = document.getElementById("carrito_boton")
 btnCarrito.addEventListener("click", () => {
@@ -137,30 +148,41 @@ btnCarrito.addEventListener("click", () => {
 
 let modalCarrito = document.getElementById("carrito")
 
-let btnEliminar = document.getElementById("eliminar_carrito")
-// btnEliminar.addEventListener("click", eliminarCarrito)
 
 function mostrarCarrito(){
     modalCarrito.innerHTML=" "
-    carrito.funkosSeleccionados.forEach((funko) => {
+    carrito.funkosSeleccionados.forEach((funko, indice) => {
         let tarjeta = document.createElement("div")
-        tarjeta.innerHTML = `<div class="card" style="width: 18rem;">
+        tarjeta.innerHTML = `<div id="productoCarrito${funko.codigo}" class="card" style="width: 18rem;">
                                 <img src="../Assets/${funko.nombre}.jpg" class="card-img-top" alt="funko de ${funko.nombre}">
                                 <div class="card-body">
                                     <h3 class="card-title">${funko.nombre}</h3>
                                     <h4 class="card-title">${funko.subcategoria}</h4>
                                     <h5 class="card-title">$${funko.precio}</h5>
                                     <p class="card-text">Funko ${funko.tamanio} ${funko.version}</p>
-                                    <button class="eliminar__carrito" type="button" id="eliminarBtn${funko.codigo}">Eliminar</button>
+                                    <button class="eliminar__carrito" type="button" id="botonEliminar${funko.codigo}">Eliminar</button>
                                 </div>
                             </div>`
         modalCarrito.appendChild(tarjeta)
-
-        let btnEliminar = document.getElementById(`eliminarBtn${funko.codigo}`)
-        btnEliminar.addEventListener("click", () =>(carrito.seleccionarFunko(funko)))
+        let btnEliminar =  document.getElementById(`botonEliminar${funko.codigo}`)
+        btnEliminar.addEventListener("click", ()=>{
+            eliminar(funko, indice)
+        })
     })
     compraTotal(carrito.funkosSeleccionados)
 }
+
+function eliminar(funko, indice, funkosSeleccionados){
+    console.log(`Eliminaste el funko de ${funko.nombre}`)
+    let cardProducto = document.getElementById(`productoCarrito${funko.codigo}`)
+    console.log(cardProducto);
+    cardProducto.remove()
+    carrito.funkosSeleccionados.splice(indice, 1)
+    console.log(funkosSeleccionados)
+    localStorage.setItem("carrito", JSON.stringify(carrito.funkosSeleccionados))
+    compraTotal(carrito.funkosSeleccionados)
+}
+
 let parrafoCompra = document.getElementById("parrafo_compra")
 
 function compraTotal(productosTotal){
@@ -185,6 +207,8 @@ function vaciarCarrito(){
     modalCarrito.innerHTML=" "
 }
 
+
+//////////////////////////------BUSCADOR
 
 function mostrarFunkos(){
     borrarListado()

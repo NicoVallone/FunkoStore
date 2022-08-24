@@ -42,6 +42,8 @@ main {
   .header nav {
     font-size: 1.3rem;
     margin-left: 10px; }
+    .header nav div div .carrito_modal {
+      align-items: center; }
     .header nav div div ul li {
       margin: 8px; }
       .header nav div div ul li a {
