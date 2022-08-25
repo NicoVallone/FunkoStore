@@ -138,6 +138,7 @@ function crearFunko(){
 
 
 
+
 ///////////////////////-------------CARRITO
 
 let btnCarrito = document.getElementById("carrito_boton")
@@ -167,6 +168,13 @@ function mostrarCarrito(){
         let btnEliminar =  document.getElementById(`botonEliminar${funko.codigo}`)
         btnEliminar.addEventListener("click", ()=>{
             eliminar(funko, indice)
+            Swal.fire({
+                title: 'Funko Eliminado!',
+                text: `Eliminaste el funko de ${funko.nombre}`,
+                icon: 'error',
+                confirmButtonText: 'OK'
+              })
+            
         })
     })
     compraTotal(carrito.funkosSeleccionados)
